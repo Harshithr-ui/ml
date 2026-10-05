@@ -1,0 +1,141 @@
+/* =====================================================
+   style.css - the only stylesheet used in this project
+   ===================================================== */
+
+/* Basic page setup */
+* {
+    box-sizing: border-box;   /* padding/border included in width */
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;  /* readable, common font */
+    background-color: #ffffff;                  /* clean white background */
+    color: #1f2937;                             /* dark grey text */
+    min-height: 100vh;
+    padding: 40px 16px;
+}
+
+/* ---------------- Header ---------------- */
+header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+header h1 {
+    font-size: 32px;
+    color: #2563eb;             /* simple blue accent */
+    margin-bottom: 8px;
+}
+
+.subtitle {
+    font-size: 16px;
+    color: #6b7280;             /* light grey */
+}
+
+/* ---------------- Card ---------------- */
+main {
+    display: flex;
+    justify-content: center;    /* center the card horizontally */
+}
+
+.card {
+    background-color: #ffffff;
+    width: 100%;
+    max-width: 420px;           /* stops the card from getting too wide */
+    padding: 32px;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;        /* rounded corners */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);  /* small shadow */
+}
+
+/* ---------------- Form ---------------- */
+.form-group {
+    margin-bottom: 18px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 6px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px 12px;
+    font-size: 15px;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    outline: none;
+}
+
+/* Blue border when the user clicks into an input */
+.form-group input:focus {
+    border-color: #2563eb;
+}
+
+/* ---------------- Button ---------------- */
+button {
+    width: 100%;
+    padding: 14px;
+    margin-top: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #ffffff;
+    background-color: #2563eb;   /* blue accent */
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+/* Simple hover effect */
+button:hover {
+    background-color: #1d4ed8;   /* slightly darker blue */
+}
+
+/* ---------------- Result ---------------- */
+.result {
+    margin-top: 24px;
+    padding: 16px;
+    background-color: #eff6ff;   /* very light blue */
+    border: 1px solid #bfdbfe;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.result-title {
+    font-size: 18px;
+    font-weight: bold;
+    color: #1d4ed8;
+    margin-bottom: 8px;
+}
+
+.result-note {
+    font-size: 13px;
+    color: #6b7280;
+}
+
+/* ---------------- Error ---------------- */
+.error {
+    margin-top: 24px;
+    padding: 14px;
+    background-color: #fef2f2;   /* light red */
+    border: 1px solid #fecaca;
+    border-radius: 8px;
+    color: #b91c1c;              /* dark red text */
+    font-size: 14px;
+    text-align: center;
+}
+
+/* ---------------- Responsive ---------------- */
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 24px;
+    }
+
+    .card {
+        padding: 22px;
+    }
+}

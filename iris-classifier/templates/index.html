@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- Makes the page responsive on phones and tablets -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iris Flower Classifier</title>
+
+    <!-- Link to our single CSS file -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <!-- ============ HEADER ============ -->
+    <header>
+        <h1>Iris Flower Classifier</h1>
+        <p class="subtitle">Machine Learning Classification Web Application</p>
+    </header>
+
+    <!-- ============ PREDICTION CARD ============ -->
+    <main>
+        <div class="card">
+
+            <!-- The form sends data to the /predict route using POST -->
+            <form action="/predict" method="POST">
+
+                <!-- Input 1: Sepal Length -->
+                <div class="form-group">
+                    <label for="sepal_length">Sepal Length (cm)</label>
+                    <input type="number" step="any" id="sepal_length" name="sepal_length"
+                           placeholder="e.g. 5.1" required>
+                </div>
+
+                <!-- Input 2: Sepal Width -->
+                <div class="form-group">
+                    <label for="sepal_width">Sepal Width (cm)</label>
+                    <input type="number" step="any" id="sepal_width" name="sepal_width"
+                           placeholder="e.g. 3.5" required>
+                </div>
+
+                <!-- Input 3: Petal Length -->
+                <div class="form-group">
+                    <label for="petal_length">Petal Length (cm)</label>
+                    <input type="number" step="any" id="petal_length" name="petal_length"
+                           placeholder="e.g. 1.4" required>
+                </div>
+
+                <!-- Input 4: Petal Width -->
+                <div class="form-group">
+                    <label for="petal_width">Petal Width (cm)</label>
+                    <input type="number" step="any" id="petal_width" name="petal_width"
+                           placeholder="e.g. 0.2" required>
+                </div>
+
+                <!-- Submit button -->
+                <button type="submit">Predict Flower</button>
+            </form>
+
+            <!-- ============ RESULT AREA ============ -->
+
+            <!-- Show an error message if something was wrong -->
+            {% if error %}
+                <div class="error">{{ error }}</div>
+            {% endif %}
+
+            <!-- Show the prediction result -->
+            {% if prediction %}
+                <div class="result">
+                    <p class="result-title">Predicted Flower: {{ prediction }}</p>
+                    <p class="result-note">
+                        Prediction generated successfully using a trained Machine Learning model.
+                    </p>
+                </div>
+            {% endif %}
+
+        </div>
+    </main>
+
+</body>
+</html>
