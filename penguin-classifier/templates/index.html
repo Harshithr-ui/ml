@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- Makes the page responsive on phones and tablets -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Penguin Species Classifier</title>
+
+    <!-- Link to our single CSS file -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <!-- ============ HEADER ============ -->
+    <header>
+        <h1>Penguin Species Classifier</h1>
+        <p class="subtitle">Machine Learning Classification Web Application</p>
+    </header>
+
+    <!-- ============ PREDICTION CARD ============ -->
+    <main>
+        <div class="card">
+
+            <!-- The form sends data to the /predict route using POST -->
+            <form action="/predict" method="POST">
+
+                <!-- Each field comes from the Python list passed by app.py -->
+                {% for field_name, label, placeholder in fields %}
+                <div class="form-group">
+                    <label for="{{ field_name }}">{{ label }}</label>
+                    <input type="number" step="any" id="{{ field_name }}" name="{{ field_name }}"
+                           placeholder="{{ placeholder }}" required>
+                </div>
+                {% endfor %}
+
+                <!-- Submit button -->
+                <button type="submit">Predict Species</button>
+            </form>
+
+            <!-- ============ RESULT AREA ============ -->
+
+            <!-- Show an error message if something was wrong -->
+            {% if error %}
+                <div class="error">{{ error }}</div>
+            {% endif %}
+
+            <!-- Show the prediction result -->
+            {% if prediction %}
+                <div class="result">
+                    <p class="result-title">Predicted Species: {{ prediction }}</p>
+                    <p class="result-note">
+                        Prediction generated successfully using a trained Machine Learning model.
+                    </p>
+                </div>
+            {% endif %}
+
+        </div>
+    </main>
+
+</body>
+</html>
